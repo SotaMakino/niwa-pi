@@ -18,6 +18,7 @@ if __name__ == '__main__':
         print ("start niwa")
         while True:
             if(GPIO.input(GPIO_PIN) == GPIO.HIGH):
+                print("found a human")
                 player = OMXPlayer(VIDEO_PATH)
                 sleep(5)
             else:
