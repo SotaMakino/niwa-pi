@@ -1,3 +1,4 @@
-a = [1, 2, 4]
+a = "0.1"
+b = "0.2"
 
-print a[len(a) - 1]
+print(float(a) - float(b))

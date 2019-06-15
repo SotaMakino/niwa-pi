@@ -1,10 +1,11 @@
 # coding: utf-8
-# from omxplayer.player import OMXPlayer
-# from pathlib import Path
+from omxplayer.player import OMXPlayer
+from pathlib import Path
 from smbus2 import SMBus
 import time
 
-# VIDEO_PATH = Path("path")
+VIDEO_PATH = Path("path")
+VIDEO_PATH_SUB = Path("path_sub")
 
 bus_number = 1
 i2c_address = 0x76
@@ -13,7 +14,7 @@ bus = SMBus(bus_number)
 
 digT = []
 
-arrTemp = [0, 0]
+arrTemp = []
 
 t_fine = 0.0
 
@@ -62,6 +63,8 @@ def compensate_T(adc_T):
               float(arrTemp[len(arrTemp) - 1]))
     else:
         print("video playing")
+        player = OMXPlayer(VIDEO_PATH)
+        time.sleep(3)
 
 
 def setup():
@@ -80,6 +83,13 @@ def setup():
 
 setup()
 get_calib_param()
+
+time.sleep(3)
+player_sub = OMXPlayer(VIDEO_PATH_SUB)
+
+time.sleep(3)
+player_sub.set_position(0)
+player_sub.pause()
 
 
 if __name__ == '__main__':
