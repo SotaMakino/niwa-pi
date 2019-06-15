@@ -1,10 +1,10 @@
 # coding: utf-8
-from omxplayer.player import OMXPlayer
-from pathlib import Path
+# from omxplayer.player import OMXPlayer
+#from pathlib import Path
 from smbus2 import SMBus
 import time
 
-VIDEO_PATH = Path("path")
+# VIDEO_PATH = Path("path")
 
 bus_number = 1
 i2c_address = 0x76
@@ -41,6 +41,7 @@ def readData():
     temp_raw = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4)
 
     compensate_T(temp_raw)
+    print (data)
 
 
 def compensate_T(adc_T):
@@ -50,11 +51,7 @@ def compensate_T(adc_T):
         (adc_T / 131072.0 - digT[0] / 8192.0) * digT[2]
     t_fine = v1 + v2
     temperature = t_fine / 5120.0
-    if temperature > 26:
-        print "temp : %-6.2f ℃" % (temperature)
-    elif temperature <= 26:
-        player = OMXPlayer(VIDEO_PATH)
-        time.sleep(3)
+    print "temp : %-6.2f ℃" % (temperature)
 
 
 def setup():
