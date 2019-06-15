@@ -41,10 +41,10 @@ def readData():
     temp_raw = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4)
 
     compensate_T(temp_raw)
-    print (data)
 
 
 def compensate_T(adc_T):
+    arrTemp = []
     global t_fine
     v1 = (adc_T / 16384.0 - digT[0] / 1024.0) * digT[1]
     v2 = (adc_T / 131072.0 - digT[0] / 8192.0) * \
@@ -52,6 +52,8 @@ def compensate_T(adc_T):
     t_fine = v1 + v2
     temperature = t_fine / 5120.0
     print "temp : %-6.2f ℃" % (temperature)
+    arrTemp.append(temperature)
+    print (arrTemp)
 
 
 def setup():
