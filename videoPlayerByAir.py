@@ -1,7 +1,7 @@
 # coding: utf-8
 from omxplayer.player import OMXPlayer
 from pathlib import Path
-from smbus2 import SMBus
+from smbus import SMBus
 import time
 
 VIDEO_PATH = Path("path")
