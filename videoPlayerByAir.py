@@ -14,7 +14,7 @@ bus = SMBus(bus_number)
 
 digT = []
 
-arrTemp = []
+arrTemp = [0, 0]
 
 t_fine = 0.0
 
