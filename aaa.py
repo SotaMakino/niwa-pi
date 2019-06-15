@@ -1,3 +1,3 @@
-a = "aaa"
+a = [1, 2, 4]
 
-print "bbb: %s" % (a)
+print a[len(a) - 1]

@@ -52,11 +52,15 @@ def compensate_T(adc_T):
         (adc_T / 131072.0 - digT[0] / 8192.0) * digT[2]
     t_fine = v1 + v2
     temperature = t_fine / 5120.0
-    print "temp : %-6.2f ℃" % (temperature)
+    #print "temp : %-6.2f ℃" % (temperature)
 
-    parsedTemp = "%-6.2f ℃" % (temperature)
+    parsedTemp = "%-6.2f" % (temperature)
     arrTemp.append(parsedTemp)
-    print (arrTemp)
+
+    if arrTemp[len(arrTemp) - 1] - arrTemp[len(arrTemp) - 2] < 0.5:
+        print(arrTemp[len(arrTemp) - 1] - arrTemp[len(arrTemp) - 2])
+    else:
+        print("video playing")
 
 
 def setup():
