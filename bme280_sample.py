@@ -70,6 +70,8 @@ get_calib_param()
 
 if __name__ == '__main__':
     try:
-        readData()
+        while True:
+            readData()
+            time.sleep(5)
     except KeyboardInterrupt:
         pass
