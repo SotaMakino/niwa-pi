@@ -47,6 +47,7 @@ def compensate_T(adc_T):
         (adc_T / 131072.0 - digT[0] / 8192.0) * digT[2]
     t_fine = v1 + v2
     temperature = t_fine / 5120.0
+    print(temperature)
     print "temp : %-6.2f ℃" % (temperature)
 
 
