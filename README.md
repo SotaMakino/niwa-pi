@@ -1,3 +1,3 @@
-# 2.5 dimensional garden
+# Media Art: niwa
 
 ![garden](./garden.gif)
